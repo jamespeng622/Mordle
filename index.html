@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mordle - Unlimited word games</title>
+    <link rel="icon" href="resources/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://kit.fontawesome.com/421f973b98.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.9/dist/clipboard.min.js"></script>
+</head>
+<body>
+  <div class="navbar">
+      <div class="nav-col-s" ID="again">AGAIN!</div>
+      <div class="image"></div>
+      <div class="nav-col-s" ID="stats">STATS?</div>
+  </div>
+
+  <div class="fullscreen-container" ID="locker">
+      <div class="overlay" ID="overlay">
+          <div class="content">
+              <div class="poprow">
+                  <div class="btn" ID="close">CLOSE</div>
+              </div>
+              <div class="poprow" style="padding-top: 35px; padding-bottom: 10px">STATISTICS</div>
+              <div class="poprow" style="width: 70%">
+                  <div class="popcolumn">
+                      <div class="statistics" ID="gamesPlayedDisplay">0</div>
+                      <div class="description">GAMES</div>
+                  </div>
+                  <div class="popcolumn">
+                      <div class="statistics" ID="winPercentageDisplay">0</div>
+                      <div class="description">WIN%</div>
+                  </div>
+                  <div class="popcolumn">
+                      <div class="statistics" ID="currentStreakDisplay">0</div>
+                      <div class="description">IN A ROW</div>
+                  </div>
+                  <div class="popcolumn">
+                      <div class="statistics" ID="maxStreakDisplay">0</div>
+                      <div class="description">MAX</div>
+                  </div>
+              </div>
+              <div class="poprow" style="padding-top: 35px;">GUESS DISTRIBUTION</div>
+              <div class="poprow" style="width: 75%; padding-top: 3px; padding-bottom: 20px">
+                  <canvas id="myChart" style="height: 150px;"></canvas>
+              </div>
+              <textarea ID="shareOutputDiv" style="display:none"></textarea>
+              <div class="poprow" style="padding-bottom: 20px;">
+                  <div ID="share">SHARE</div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+
+  <div class="row">
+      <div class="column-blank" ID="0"></div>
+      <div class="column-blank" ID="1"></div>
+      <div class="column-blank" ID="2"></div>
+      <div class="column-blank" ID="3"></div>
+      <div class="column-blank" ID="4"></div>
+  </div>
+  <div class="row">
+      <div class="column-blank" ID="5"></div>
+      <div class="column-blank" ID="6"></div>
+      <div class="column-blank" ID="7"></div>
+      <div class="column-blank" ID="8"></div>
+      <div class="column-blank" ID="9"></div>
+  </div>
+  <div class="row">
+      <div class="column-blank" ID="10"></div>
+      <div class="column-blank" ID="11"></div>
+      <div class="column-blank" ID="12"></div>
+      <div class="column-blank" ID="13"></div>
+      <div class="column-blank" ID="14"></div>
+  </div>
+  <div class="row">
+      <div class="column-blank" ID="15"></div>
+      <div class="column-blank" ID="16"></div>
+      <div class="column-blank" ID="17"></div>
+      <div class="column-blank" ID="18"></div>
+      <div class="column-blank" ID="19"></div>
+  </div>
+  <div class="row">
+      <div class="column-blank" ID="20"></div>
+      <div class="column-blank" ID="21"></div>
+      <div class="column-blank" ID="22"></div>
+      <div class="column-blank" ID="23"></div>
+      <div class="column-blank" ID="24"></div>
+  </div>
+  <div class="row">
+      <div class="column-blank" ID="25"></div>
+      <div class="column-blank" ID="26"></div>
+      <div class="column-blank" ID="27"></div>
+      <div class="column-blank" ID="28"></div>
+      <div class="column-blank" ID="29"></div>
+  </div>
+
+  <div class="alphabet-row-1">
+      <div class="key" ID="30">Q</div>
+      <div class="key" ID="31">W</div>
+      <div class="key" ID="32">E</div>
+      <div class="key" ID="33">R</div>
+      <div class="key" ID="34">T</div>
+      <div class="key" ID="35">Y</div>
+      <div class="key" ID="36">U</div>
+      <div class="key" ID="37">I</div>
+      <div class="key" ID="38">O</div>
+      <div class="key" ID="39">P</div>
+  </div>
+  <div class="alphabet-row-2">
+      <div class="key" ID="40">A</div>
+      <div class="key" ID="41">S</div>
+      <div class="key" ID="42">D</div>
+      <div class="key" ID="43">F</div>
+      <div class="key" ID="44">G</div>
+      <div class="key" ID="45">H</div>
+      <div class="key" ID="46">J</div>
+      <div class="key" ID="47">K</div>
+      <div class="key" ID="48">L</div>
+  </div>
+  <div class="alphabet-row-3">
+      <div class="key" ID="enter">ENTER</div>
+      <div class="key" ID="49">Z</div>
+      <div class="key" ID="50">X</div>
+      <div class="key" ID="51">C</div>
+      <div class="key" ID="52">V</div>
+      <div class="key" ID="53">B</div>
+      <div class="key" ID="54">N</div>
+      <div class="key" ID="55">M</div>
+      <div class="key" ID="backspace"><i class="fas fa-backspace"></i></div>
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.9/dist/clipboard.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>

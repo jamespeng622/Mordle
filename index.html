@@ -12,7 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
     <script type='text/javascript' src='/JavaScriptSpellCheck/include.js'></script>
-    <script type='text/javascript'>$Spelling.BinSpellCheck('myTextArea')</script>
+    <script type='text/javascript'>
+        $Spelling.BinSpellCheck('myTextArea');
+        function checkSpelling(){
+            var word = document.getElementById("word");
+            var result = $Spelling.BinSpellCheck(word.innerHTML);
+            this.innerHTML = result;
+        }
+    </script>
 </head>
 <body>
   <div class="navbar">
@@ -138,8 +145,9 @@
       <div class="key" ID="backspace"><i class="fas fa-backspace"></i></div>
   </div>
 
+  <div ID="word"></ID>
+  <button class="btn" ID="spellCheck" onclick="checkSpelling();"></button>
 
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.9/dist/clipboard.min.js"></script>
-    <script src="script/script.js"></script>
+  <script src="script/script.js"></script>
 </body>
 </html>

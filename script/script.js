@@ -11,7 +11,8 @@ let shareString = "";
 // for spell check
 let guessedWord =  "";
 var checkPassed = 0;
-$Spelling.DefaultDictionary = "English (International)";
+var word = document.getElementById("word");
+var spellCheck = document.getElementById("spellCheck");
 
 // game variables
 var one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
@@ -136,7 +137,9 @@ enter.addEventListener("click", function(){
         for(var p=0; p<5;  p++){
             guessedWord += tiles[currentRow*5+p].innerHTML;
         }
-        checkPassed = $Spelling.BinSpellCheck(guessedWord);
+        word.innerHTML = guessedWord;
+        spellCheck.click();
+        checkPassed = spellCheck.innerHTML;
     }
 
     if(!checkPassed){

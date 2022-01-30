@@ -340,6 +340,10 @@ enter.addEventListener("click", function(){
             maxStreakDisplay.innerHTML = maxStreak;
         }
 
+        if(currentGameEnd == 1 && currentGameWon == 0){
+            window.alert("The word is: "+currentWord);
+        }
+
         currentRow++;
     }
 });

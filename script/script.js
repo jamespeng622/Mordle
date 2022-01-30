@@ -11,8 +11,6 @@ let shareString = "";
 // for spell check
 let guessedWord =  "";
 var checkPassed = 0;
-var word = document.getElementById("word");
-var spellCheck = document.getElementById("spellCheck");
 
 // game variables
 var one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
@@ -36,7 +34,7 @@ let indexString = index.toString();
 var currentIndex = 0;
 var currentRow = 0;
 
-var max = 45;
+var max = 110;
 var words = ["LASER", "FOCUS", "CADET", "YOUTH", "CRIMP",
              "DRINK", "PRIDE", "RAMEN", "DRANK", "PRANK",
              "DANCE", "PAINT", "CREAM", "DREAM", "WEARY",
@@ -45,7 +43,20 @@ var words = ["LASER", "FOCUS", "CADET", "YOUTH", "CRIMP",
              "DIVER", "WITCH", "DITCH", "HITCH", "PITCH",
              "BRICK", "BRINK", "PRUNE", "CRUDE", "GRAND",
              "RAISE", "CRAZE", "CRAWL", "GLOAT", "BLOAT",
-             "RHINO", "FEAST", "DROOL", "GREAT", "TREAT"];
+             "RHINO", "FEAST", "DROOL", "GREAT", "TREAT",
+             "QUEER", "QUIET", "EERIE", "MOUNT", "COUNT",
+             "PZAZZ", "JAZZY", "BUZZY", "FUZZY", "DIZZY",
+             "PIZZA", "TIZZY", "JUMPY", "MUZAK", "JERKY",
+             "JUICY", "JOKER", "HIPPO", "TIGER", "QUIRK",
+             "XEROX", "BANJO", "BEZEL", "BEVEL", "BASIL",
+             "BIJOU", "FJORD", "ANNEX", "JELLY", "BELLY",
+             "LIVER", "PIQUE", "SQUIB", "SQUID", "VIGOR",
+             "BOOZE", "COCKY", "EJECT", "EPOXY", "HAZEL",
+             "KNACK", "KNICK", "KNOCK", "PRIZE", "QUERY",
+             "TOPAZ", "VIXEN", "WHACK", "BLACK", "BLOCK",
+             "BULKY", "CHIMP", "CHUNK", "COMFY", "DOZEN",
+             "EXPEL", "FLOCK", "FLUFF", "INBOX", "SQUAD",
+             "AZURE", "BOXER", "BUGGY", "CHALK", "CRUMB"];
 
 // random number generator
 function getRandomNumber(min, max) {
@@ -131,23 +142,9 @@ for(i=0; i<26; i++){
 
 enter.addEventListener("click", function(){
     // spell check here
+
+
     if(currentIndex == (currentRow+1)*5){
-        checkPassed = 0;
-        guessedWord = "";
-        for(var p=0; p<5;  p++){
-            guessedWord += tiles[currentRow*5+p].innerHTML;
-        }
-        word.innerHTML = guessedWord;
-        spellCheck.click();
-        checkPassed = spellCheck.innerHTML;
-    }
-
-    if(!checkPassed){
-        window.alert("No such word!");
-    }
-
-
-    if(currentIndex == (currentRow+1)*5 && checkPassed == 1){
         // matching algorithm here
         points = 0;
 

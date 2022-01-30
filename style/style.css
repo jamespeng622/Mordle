@@ -1,3 +1,9 @@
+@import url(//fonts.googleapis.com/css?family=Rubik:700);
+
+body {
+    font-family: 'Rubik';
+}
+
 
 .navbar {
   display: flex;

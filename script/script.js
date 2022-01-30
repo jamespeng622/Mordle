@@ -8,6 +8,11 @@ var shareIndex = 0;
 var shareOutputDiv = document.getElementById("shareOutputDiv");
 let shareString = "";
 
+// for spell check
+let guessedWord =  "";
+var checkPassed = 0;
+$Spelling.DefaultDictionary = "English (International)";
+
 // game variables
 var one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
 var gamesPlayed = 0;
@@ -74,8 +79,6 @@ var currentWordIndex = 0;
 currentWordIndex = getRandomNumber(0, max-1);
 var currentWord = words[currentWordIndex];
 
-console.log(currentWord);
-
 
 var flag = 0;
 var points = 0;
@@ -126,7 +129,22 @@ for(i=0; i<26; i++){
 }
 
 enter.addEventListener("click", function(){
+    // spell check here
     if(currentIndex == (currentRow+1)*5){
+        checkPassed = 0;
+        guessedWord = "";
+        for(var p=0; p<5;  p++){
+            guessedWord += tiles[currentRow*5+p].innerHTML;
+        }
+        checkPassed = $Spelling.BinSpellCheck(guessedWord);
+    }
+
+    if(!checkPassed){
+        window.alert("No such word!");
+    }
+
+
+    if(currentIndex == (currentRow+1)*5 && checkPassed == 1){
         // matching algorithm here
         points = 0;
 
@@ -224,7 +242,6 @@ enter.addEventListener("click", function(){
         for(var p=0; p<shareIndex; p++){
             shareString = shareString + shareOutput[p];
         }
-        console.log(shareOutput);
         shareOutputDiv.innerHTML = shareString;
 
 
@@ -387,7 +404,6 @@ again.addEventListener("click", function(){
         shareIndex = 0;
 
         currentWord = words[currentWordIndex];
-        console.log(currentWord);
 
         for(var p=0; p<26; p++){
             remainingOpportunities[p] = 0;
